@@ -1,7 +1,12 @@
-import { Text, TextInput, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import  { styles }  from './styles'
 
 export function Home() {
+
+    function handleAddParticipant() {
+        console.log("tufao")
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.eventName}> 
@@ -17,6 +22,10 @@ export function Home() {
                 placeholderTextColor="#ffffd1"
                 
             />
+
+            <TouchableOpacity onPress={handleAddParticipant} style={styles.button}>
+                <Text style={styles.buttonText}>Add</Text>
+            </TouchableOpacity>
         </View>
     )
 }
