@@ -16,16 +16,18 @@ export function Home() {
                 Sexta, 30 de maio de 2024
             </Text>
 
-            <TextInput 
-                style={styles.input}
-                placeholder="escreva aqui" 
-                placeholderTextColor="#ffffd1"
-                
-            />
+            <View style={styles.form}>
+                <TextInput 
+                    style={styles.input}
+                    placeholder="escreva aqui" 
+                    placeholderTextColor="#b8b864"    
+                />
 
-            <TouchableOpacity onPress={handleAddParticipant} style={styles.button}>
-                <Text style={styles.buttonText}>Add</Text>
-            </TouchableOpacity>
+                <TouchableOpacity onPress={handleAddParticipant} style={styles.button}>
+                    <Text style={styles.buttonText}>Add</Text>
+                </TouchableOpacity>
+            </View>
+
         </View>
     )
 }
