@@ -1,4 +1,4 @@
-import { Text, TextInput, TouchableOpacity, View, ScrollView } from "react-native";
+import { Text, TextInput, TouchableOpacity, View, FlatList } from "react-native";
 import  { styles }  from './styles'
 import { Participant } from "../../Components/Participant";
 
@@ -34,18 +34,21 @@ export function Home() {
                 </TouchableOpacity>
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false}>
-            {
-                particpants.map(partipant => (
+            <FlatList 
+                data={particpants}
+                keyExtractor={item => item}
+                showsVerticalScrollIndicator={false}
+                renderItem={({ item }) => (
                     <Participant 
-                        key={partipant}
-                        name={partipant} 
+                        key={item}
+                        name={item} 
                         onRemove={handleRemoveParticipant}
                     
                     />
-                ))
-            }
-            </ScrollView>
+                
+                )}
+            />
+            
             
             
 
