@@ -1,16 +1,24 @@
+import { useState } from 'react'
 import { Text, TextInput, TouchableOpacity, View, FlatList } from "react-native";
 import  { styles }  from './styles'
 import { Participant } from "../../Components/Participant";
 
 export function Home() {
-    const particpants = ['Tamires', 'Tufao', 'Felipe', "Manu", "Iza", "Ana", "Pai", "mae", 'tia', 'avo', 'avó']
+    const [participant , setParticipant] = useState<string[]>(['']);
+    const [participantName, setParticipantName] = useState('')
+
 
     function handleAddParticipant() {
-        console.log("tufao")
+        //if(particpants.includes()) {}
+
+        setParticipant(prevState => [...prevState, participantName]);
+        setParticipantName('')
     }
 
-    function handleRemoveParticipant() {
+    function handleRemoveParticipant(name: string) {
+        console.log('tufao')
 
+        
     }
 
     return (
@@ -26,23 +34,25 @@ export function Home() {
                 <TextInput 
                     style={styles.input}
                     placeholder="escreva aqui" 
-                    placeholderTextColor="#b8b864"    
+                    placeholderTextColor="#b8b864"
+                    onChangeText={setParticipantName} 
+                    value={participantName}   
                 />
 
-                <TouchableOpacity onPress={handleAddParticipant} style={styles.button}>
+                <TouchableOpacity onPress={() => handleAddParticipant()} style={styles.button}>
                     <Text style={styles.buttonText}>+</Text>
                 </TouchableOpacity>
             </View>
 
             <FlatList 
-                data={particpants}
+                data={participant}
                 keyExtractor={item => item}
                 showsVerticalScrollIndicator={false}
                 renderItem={({ item }) => (
                     <Participant 
                         key={item}
                         name={item} 
-                        onRemove={handleRemoveParticipant}
+                        onRemove={() => handleRemoveParticipant(item)}
                     
                     />
                 
