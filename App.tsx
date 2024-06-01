@@ -1,13 +1,13 @@
-
-import { Participant } from './src/Components/Participant';
+import {StatusBar} from 'react-native';
 import { Home } from './src/Screen/Home/Index';
 
 export default function App() {
   return (
-   <> 
-    <Home />
-    
-   </> 
+    <>
+      <StatusBar barStyle="light-content" />
+      <Home />
+    </>
+ 
   );
 }
 
