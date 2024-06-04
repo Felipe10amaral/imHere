@@ -16,7 +16,8 @@ export function Home() {
     }
 
     function handleRemoveParticipant(name: string) {
-        console.log('tufao')
+
+        setParticipant(prevState => prevState.filter(participant => participant != name))
 
         
     }
